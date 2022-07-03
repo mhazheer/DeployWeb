@@ -26,12 +26,15 @@ data "aws_ami" "selected" {
 
 # On recupere les ressources reseau
 ## VPC
-data "aws_vpc" "selected" {
-  tags = {
-    Name = "${var.env}-vpc"
-  }
-}
 
+#data "aws_vpc" "selected" {
+ # tags = {
+#    Name = "${var.env}-vpc"
+#  }
+#}
+data "aws_vpc" "selected" {
+  id = "vpc-0df42614afae0693e"
+}
 ## Subnets
 data "aws_subnet" "subnet-public-1" {
   tags = {
