@@ -7,7 +7,9 @@ variable "env" {
   type    = string
   default = "dev"
 }
-
+variable "projectName" {
+  type    = string
+}
 ####################################################################
 # On recherche la derniere AMI créée avec le Name TAG PackerAnsible-Apache
 data "aws_ami" "selected" {
@@ -42,36 +44,44 @@ filter {
 data "aws_subnet" "subnet-public-1" {
   tags = {
     Name = "${var.env}-subnet-public-1"
+    Name = "${var.projectName}-subnet-public-1"
   }
 }
 
 data "aws_subnet" "subnet-public-2" {
   tags = {
     Name = "${var.env}-subnet-public-2"
+    Name = "${var.projectName}-subnet-public-2"
+
   }
 }
 
 data "aws_subnet" "subnet-public-3" {
   tags = {
     Name = "${var.env}-subnet-public-3"
+    Name = "${var.projectName}-subnet-public-3"
+
   }
 }
 
 data "aws_subnet" "subnet-private-1" {
   tags = {
     Name = "${var.env}-subnet-private-1"
+    Name = "${var.projectName}-subnet-private-1"
   }
 }
 
 data "aws_subnet" "subnet-private-2" {
   tags = {
     Name = "${var.env}-subnet-private-2"
+    Name = "${var.projectName}-subnet-private-2"
   }
 }
 
 data "aws_subnet" "subnet-private-3" {
   tags = {
     Name = "${var.env}-subnet-private-3"
+    Name = "${var.projectName}-subnet-private-3"
   }
 }
 
