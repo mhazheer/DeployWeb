@@ -33,7 +33,10 @@ data "aws_ami" "selected" {
 #  }
 #}
 data "aws_vpc" "selected" {
-  id = "vpc-0df42614afae0693e"
+filter {
+    name   = "tag:Name"
+    values = ["${var.env}-vpc"]
+  }
 }
 ## Subnets
 data "aws_subnet" "subnet-public-1" {
